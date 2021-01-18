@@ -7,11 +7,11 @@ katex cheatsheet
 https://katex.org/docs/supported.html
 -->
 
+[TOC]
+
 ---
 
 ## [AtCoder DP contest](https://atcoder.jp/contests/dp/tasks)
-
-[TOC]
 
 ----
 
@@ -504,7 +504,7 @@ signed main() {
 
 [link](https://atcoder.jp/contests/dp/tasks/dp_h)
 
-**題目：給你一H\*W由`'#','.'`組成的矩陣，其中`'.'`可走`'#'`不可走，求從(1,1)走到(H,W)的方法數**
+**題目：給你一H\*W由`'#'`,`'.'`組成的矩陣，其中`'.'`可走`'#'`不可走，求從(1,1)走到(H,W)的方法數**
 
 - 小技巧是按照題目說的從(1,1)開始存值，x或y如果是0就把它值設成0，好寫很多(?)
 - dp轉移式
@@ -721,6 +721,36 @@ signed main() {
 - 答案：$dp[0][n]$
 - 複雜度：時間$\mathcal O(N^2)$，空間$\mathcal O(N^2)$
 
+:::spoiler AC Code
+```cpp=
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+
+
+int n, a[3005], dp[3005][3005];
+
+
+signed main() {
+  cin >> n;
+  for (int i = 0; i < n; i++) cin >> a[i];
+
+  for (int i = n - 1; i >= 0; i--) {
+    for (int j = i; j < n; j++) {
+      if (i == j) dp[i][j] = a[i];
+      else dp[i][j] = max(a[i] - dp[i + 1][j], a[j] - dp[i][j - 1]);
+    }
+  }
+  cout << dp[0][n - 1] << endl;
+  return 0;
+}
+```
+:::
+
+:::info
+聽說這題有空間$\mathcal O(N)$作法，但我不會
+:::
+
 ----
 
 ### pM
@@ -810,6 +840,62 @@ signed main() {
 - 原理：回想矩陣乘法，假設原本的矩陣叫$dp$好了，我們可以知道$(dp^2)_{i,j}=\sum_{k=1}^N dp_{i,k}\times dp_{k,j}$
 - 再來想想我們要怎麼在一張鄰接矩陣上算從節點$i$走到節點$j$的方法數，最直觀的想法就是算所有(從$i$走到某一個節點$k$的方法數$\times$從$k$走到$j$的方法數)的和，到這邊我們可以發現這其實就是矩陣乘法
 
+:::spoiler AC Code
+```cpp=
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+
+#define V vector<int>
+#define Matrix vector<V> 
+const int mod = 1e9+7;
+
+int n, K;
+
+Matrix mul(Matrix& a, Matrix& b) {
+  Matrix ret(n, V(n));
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      for (int k = 0; k < n; k++) {
+        ret[i][j] = (ret[i][j] + (int)(a[i][k] * b[k][j]) % mod) % mod;
+      }
+    }
+  }
+  return ret;
+}
+
+
+Matrix fstpow(Matrix& mat, int K) {
+  Matrix r(n, V(n)), b = mat;
+  for (int i = 0; i < n; i++) r[i][i] = 1;
+  for (; K; K >>= 1, b = mul(b, b)) {
+    if (K & 1) r = mul(r, b);
+  }
+  return r;
+}
+
+
+signed main() {
+  cin >> n >> K;
+  Matrix r(n, V(n));
+  for(int i = 0; i < n; i++) {
+    for(int j = 0; j < n; j++) {
+      cin >> r[i][j];
+    }
+  }
+  r = fstpow(r, K);
+  int sum = 0;
+  for(int i = 0; i < n; i++) {
+    for(int j = 0; j < n; j++) {
+      sum = (sum + r[i][j]) % mod;
+    }
+  }
+  cout << sum << endl;
+  return 0;
+}
+```
+:::
+
 ----
 
 ### pS
@@ -817,6 +903,47 @@ signed main() {
 [link](https://atcoder.jp/contests/dp/tasks/dp_s)
 
 **題目：給定兩個整數$K, D$，試求有多少$[1,K]$的數字各位數和可被$D$整除，答案模$10^9+7$**
+
+- 位元dp，
+
+:::spoiler
+```cpp=
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define int ll
+
+
+string k;
+int d, n;
+int dp[100005][105][2];
+const int MOD = (int)1e9 + 7;
+
+int solve (int x, int sad, bool p) {
+  if (x == n)
+    return (sad == 0);
+  int &ret = dp[x][sad][p];
+  if (ret != -1)
+    return ret;
+  ret = 0;
+  int gr = (p ? k[x] - '0' : 9);
+  for (int i = 0; i <= gr; i++) {
+    ret = (ret + solve(x + 1, (sad + i) % d, (i == gr ? p : 0))) % MOD;
+  }
+  return ret;
+}
+
+signed main(){
+  cin >> k;
+  cin >> d;
+  n = (int)k.size();
+  memset(dp, -1, sizeof(dp));
+  int t = (solve(0, 0, 1) - 1 + MOD) % MOD; 
+  cout << t << endl;
+  return 0;
+}
+```
+:::
 
 ----
 
