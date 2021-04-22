@@ -8,6 +8,10 @@
 **如果我有寫錯/有漏內容請跟我說**
 :::
 
+:::info
+[**COUNTDOWN**](https://www.timeanddate.com/countdown/to?iso=20210610T00&p0=4014&msg=%E6%96%B0%E7%AB%B9%E9%AB%98%E4%B8%AD33%E5%B1%86%E6%95%B8%E7%90%86%E8%B3%87%E5%84%AA%E7%8F%AD%E6%88%90%E6%9E%9C%E7%99%BC%E8%A1%A8%E6%9C%83%E3%80%8AUnprecedented%E3%80%8B&ud=2&font=serif)
+:::
+
 [TOC]
 
 ## 日誌
@@ -184,11 +188,35 @@
 目前有提出的幾個想法：
 - [unparalleled](https://dictionary.cambridge.org/zht/%E8%A9%9E%E5%85%B8/%E8%8B%B1%E8%AA%9E-%E6%BC%A2%E8%AA%9E-%E7%B9%81%E9%AB%94/unparalleled)
 - [premeditated](https://dictionary.cambridge.org/zht/%E8%A9%9E%E5%85%B8/%E8%8B%B1%E8%AA%9E-%E6%BC%A2%E8%AA%9E-%E7%B9%81%E9%AB%94/premeditated)
+- Intertwined
+- Chaos
+- 粹精 (from 天工開物)
 - <ruby>風<rt>かぜ</rt>夏<rt>なつ</rt></ruby>
 
 然後我要==highlight==劉德磊還沒找說文解字還是啥的奇怪字，理由是他只有咬文嚼字，在馬扁阿
 
 好像目前就這樣，總之最急迫的待辦事項是先決定成發名字，然後要去排ig宣傳，希望大家能更踴躍地提出自己的想法，這樣應該會比較好一點，醬子
+
+----
+
+#### 4/22
+
+今天午休回來聽說北一女、彰中都發邀請來了orz~~公文早個三天到我們就不用去實驗數資了欸~~現在就變成說去不了香香的女校了QQ\
+我應該會再去跟班導或設備組確認啦QQ而且現在怎麼看都覺得120人好少喔QQ
+
+另一個部分是今天放學後決定了成發名稱
+|名稱|意思|
+|:-:|:-:|
+|$Unprecedented$|空前的|
+|$Premeditated$|預謀的|
+|$Intertwined$|盤根錯節的|
+|<ruby>風<rt>かぜ</rt>夏<rt>なつ</rt></ruby>|呃，不解釋應該行吧|
+
+然後最後11票通過$Unprecedented$，感謝陳柏融贊助的選項
+
+此外，今天也有稍微想過成發倒數的時程，預計會從45天發第一篇文，到倒數10天前就放專題介紹文(一天兩篇)，最後就放其他的東西
+
+今天大概就這樣
 
 ---
 
